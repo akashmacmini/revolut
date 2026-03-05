@@ -47,6 +47,15 @@ interface OnboardingData {
   termsAccepted: boolean;
   privacyAccepted: boolean;
   marketingOptIn: boolean;
+
+  // Preferences
+  preferences: string[];
+
+  // Tracking
+  adTrackingAllowed: boolean;
+
+  // Completion
+  completed: boolean;
 }
 
 interface OnboardingState extends OnboardingData {
@@ -58,6 +67,7 @@ interface OnboardingState extends OnboardingData {
   prevStep: () => void;
   goToStep: (step: number) => void;
   reset: () => void;
+  completeOnboarding: () => void;
 }
 
 const initialData: OnboardingData = {
@@ -88,6 +98,9 @@ const initialData: OnboardingData = {
   termsAccepted: false,
   privacyAccepted: false,
   marketingOptIn: false,
+  preferences: [],
+  adTrackingAllowed: false,
+  completed: false,
 };
 
 export const useOnboardingStore = create<OnboardingState>((set) => ({
@@ -105,5 +118,7 @@ export const useOnboardingStore = create<OnboardingState>((set) => ({
 
   goToStep: (step) => set({ currentStep: step }),
 
-  reset: () => set({ ...initialData, currentStep: 1 }),
+  reset: () => set({ ...initialData, currentStep: 1, completed: false }),
+
+  completeOnboarding: () => set({ completed: true }),
 }));
