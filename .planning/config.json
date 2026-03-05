@@ -1,0 +1,30 @@
+{
+  "mode": "yolo",
+  "granularity": "standard",
+  "model_profile": "balanced",
+  "commit_docs": true,
+  "search_gitignored": false,
+  "branching_strategy": "none",
+  "phase_branch_template": "gsd/phase-{phase}-{slug}",
+  "milestone_branch_template": "gsd/{milestone}-{slug}",
+  "workflow": {
+    "research": false,
+    "plan_check": true,
+    "verifier": true,
+    "nyquist_validation": false,
+    "auto_advance": true
+  },
+  "parallelization": true,
+  "brave_search": false,
+  "github": {
+    "issues": true,
+    "auto_create": true,
+    "label_prefix": "gsd"
+  },
+  "parallel_phases": {
+    "enabled": true,
+    "max_concurrent_phases": 3,
+    "worktree_dir": ".worktrees",
+    "auto_detect": true
+  }
+}
