@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "revolut-app",
-    "slug": "revolut-app",
+    "name": "Revolut",
+    "slug": "revolut-clone",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,7 +13,7 @@
       "backgroundColor": "#000000"
     },
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.revolut.clone"
     },
     "android": {

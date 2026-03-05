@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { useAuthStore } from '@/stores/authStore';
+import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
+import { NetworkBanner } from '@/components/ui/NetworkBanner';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -39,8 +41,11 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <StatusBar style="light" />
-      <Slot />
+      <ErrorBoundary>
+        <StatusBar style="light" />
+        <NetworkBanner />
+        <Slot />
+      </ErrorBoundary>
     </QueryClientProvider>
   );
 }
